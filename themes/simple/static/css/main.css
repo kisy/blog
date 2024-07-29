@@ -93,16 +93,25 @@ td {
 	border: 1px solid var(--border-color);
 }
 
+.highlight pre {
+	border-radius: 8px;
+}
+
 pre code {
 	padding: 10px;
 	border: 1px solid var(--border-color);
 	display: block;
 	margin-top: 10px;
 	font-size: 0.85rem;
+	background-color: #272822;
+	color: #f8f8f2;
 }
 
 code {
 	display: inline-block;
+	border-radius: 8px;
+	background-color: rgba(181, 195, 212, 0.2);
+	padding: 0px 5px;
 }
 
 .meta {
