@@ -1,0 +1,11 @@
+baseURL = 'https://kisy.dev'
+languageCode = 'zh-cn'
+title = 'kisy'
+theme = 'simple'
+Copyright = '&copy; 2024 kisy'
+
+[markup]
+  [markup.tableOfContents]
+    endLevel = 3
+    ordered = false
+    startLevel = 2

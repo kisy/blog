@@ -1,0 +1,47 @@
+{{ define "main" -}}
+<article>
+  <div class="title">
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.Subtitle -}}
+    <h2>{{ . }}</h2>
+    {{ end -}}
+  </div>
+  {{ if .Date -}}
+  <div class="meta">
+    <svg xmlns="http://www.w3.org/2000/svg" class="date-icon" viewBox="0 0 24 24" {...$$props}>
+      <path fill="currentColor" d="M5 8h14V6H5z" opacity="0.3" />
+      <path fill="currentColor" d="M7 11h2v2H7zm12-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2m0 16H5V10h14zm0-12H5V6h14zm-4 3h2v2h-2zm-4 0h2v2h-2z" />
+    </svg>
+    {{ .Date.Format (.Site.Params.dateFormat | default "2006-01-02") }}
+  </div>
+  {{ end -}}
+  {{ $taxo := "tags" -}}
+  {{ if .Param $taxo -}}
+  <div class="meta">
+    {{ $data := newScratch }}
+    {{ range .Param $taxo -}}
+    {{ $name := . -}}
+    {{ with $.Site.GetPage (printf "/%s/%s" $taxo ($name | anchorize)) }}
+    {{ $data.Set "url" .Permalink }}
+    {{ end }}
+    {{ with $.Site.GetPage (printf "/%s/%s" $taxo ($name | urlize)) }}
+    {{ $data.Set "url" .Permalink }}
+    {{ end }}
+    <div class="tag"><a href="{{ $data.Get "url" }}">#{{ $name }}</a></div>
+    {{ end -}}
+  </div>
+  {{ end -}}
+  <div class="artical-body">
+  {{ if ne .TableOfContents "<nav id=\"TableOfContents\"></nav>" }}
+    {{ .TableOfContents }}
+    <div class="content-with-toc">
+      {{ .Content -}}
+    </div>
+  {{ else }}
+    <div class="content">
+      {{ .Content -}}
+    </div>
+  {{ end }}
+  </div>
+</article>
+{{ end -}}
