@@ -1,0 +1,4 @@
+baseURL = 'https://kisy.dev'
+languageCode = 'zh-cn'
+title = 'kisy'
+theme = 'hugo-bearblog'

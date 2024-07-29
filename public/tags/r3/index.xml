@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>R3 on kisy</title>
+    <link>http://10.2.7.8:1313/tags/r3/</link>
+    <description>Recent content in R3 on kisy</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 29 Jul 2024 15:54:48 +0800</lastBuildDate>
+    <atom:link href="http://10.2.7.8:1313/tags/r3/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>如何使用 mtk_uartboot 救砖 bpi-r3 mini</title>
+      <link>http://10.2.7.8:1313/blog/bpi-r3mini-uartboot/</link>
+      <pubDate>Mon, 29 Jul 2024 15:54:48 +0800</pubDate>
+      <guid>http://10.2.7.8:1313/blog/bpi-r3mini-uartboot/</guid>
+      <description>准备工作： r3mini 以及 type-c 线 chrome 或者 其他串口工具 U盘，格式为FAT，rootfs.cpio.zst 和 bpi-r3-6.10.0-main.itb 文件放入u盘根目录，插入r3mini windows 电脑，linux 自己下载对应的 mtk_uartboot mtk_uartboot.exe bpi-r3mini_ram_bl2.bin bpi-r3mini_emmc_fip.bin 3个文件放到电脑 打开cmd命令行，并cd到3个文件的目录 文件来源 mtk_uartboot.exe https://github.com/981213/mtk_uartboot/releases bpi-r3mini_ram_bl2.bin https://www.fw-web.de/dokuwiki/doku.php?id=en:bpi-r3mini:start bpi-r3mini_emmc_fip.bin https://github.com/frank-w/u-boot/releases bpi-r3-6.10.0-main.itb https://github.com/frank-w/BPI-Router-Linux/releases rootfs.cpio.zst https://forum.banana-pi.org/t/bpi-r3-mini-how-to-unbricked-nand-and-emmc/17843/25 开始救砖 type-c 线一头接 r3mini 一头接电脑，电脑为 r3mini 供电&#xA;在打开的 cmd 里执行 mtk_uartboot，此时不能有其他地方占用串口 .\mtk_uartboot.exe -s COM4 -p .\bpi-r3mini_ram_bl2.bin &amp;ndash;aarch64 -f .\bpi-r3mini_emmc_fip.bin&#xA;等待出现 NOTICE: Received FIP 后 chrome 打开 https://googlechromelabs.github.io/serial-terminal/&#xA;点击页面中的 Connect，选择 r3mini 的串口&#xA;CONNECTED 后点击下面的命令交互区域，按回车键 出现 BPI-R3M&amp;gt; 表示进入 uboot 的 console 交互界面</description>
+    </item>
+  </channel>
+</rss>
